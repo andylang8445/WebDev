@@ -53,20 +53,23 @@
 
         function addNewTableLine(form) {
             var table = document.getElementById("StudentBoard");
-            var LastRow = $('#StudentBoard >tbody tr').length;
+            var LastRow = 0;//$('#StudentBoard >tbody tr').length;
             var row = table.insertRow((LastRow - 1));
             var id = row.insertCell(0);
             var name = row.insertCell(1);
             var Math = row.insertCell(2);
             var Sci = row.insertCell(3);
             var Eng = row.insertCell(4);
+            row.insertCell(5);
 
             id.innerHTML = form.NewID.value;
             name.innerHTML = form.NewName.value;
             Math.innerHTML = form.NewMath.value;
             Sci.innerHTML = form.NewScience.value;
             Eng.innerHTML = form.NewEng.value;
-            return true;
+            
+            document.getElementById("StudentInfoForm").reset();
+            return false;
         }
 
     </script>
@@ -86,7 +89,7 @@
 
             <tbody>
                 <tr>
-                    <form action="" onsubmit="if(addBtnClicked(this)){return addNewTableLine(this)}">
+                    <form id="StudentInfoForm" action="" onsubmit="if(addBtnClicked(this)){return addNewTableLine(this)}">
                         <td> <input type="number" class="required" id="NewID" placeholder="id"> </td>
                         <td> <input type="text" class="required" id="NewName" placeholder="name"> </td>
                         <td> <input type="number" class="required" placeholder="Math" id="NewMath" onkeypress="return event.charCode >= 48 && event.charCode <= 57"> </td>
