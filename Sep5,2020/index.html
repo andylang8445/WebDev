@@ -19,6 +19,10 @@
             padding: 8px;
         }
 
+        #AddBtn {
+            background-color: greenyellow;
+        }
+
     </style>
 </head>
 
@@ -34,10 +38,41 @@
             document.getElementById("myCheck").click();
         }
 
+        function addBtnClicked(form) {
+            var requiredArr = document.getElementsByClassName('required');
+            for (var i = 0; i < requiredArr.length; i++) {
+                if (requiredArr[i].value.length == 0) {
+                    alert("Please Fill Out All Blanks!");
+                    requiredArr[i].focus();
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+        }
+
+        function addNewTableLine(form) {
+            var table = document.getElementById("StudentBoard");
+            var LastRow = $('#StudentBoard >tbody tr').length;
+            var row = table.insertRow((LastRow - 1));
+            var id = row.insertCell(0);
+            var name = row.insertCell(1);
+            var Math = row.insertCell(2);
+            var Sci = row.insertCell(3);
+            var Eng = row.insertCell(4);
+
+            id.innerHTML = form.NewID.value;
+            name.innerHTML = form.NewName.value;
+            Math.innerHTML = form.NewMath.value;
+            Sci.innerHTML = form.NewScience.value;
+            Eng.innerHTML = form.NewEng.value;
+            return true;
+        }
+
     </script>
 
     <center>
-        <table>
+        <table id="StudentBoard">
             <thead>
                 <tr>
                     <th>id</th>
@@ -51,13 +86,15 @@
 
             <tbody>
                 <tr>
-                    <td> <input type="text" class="form-control" placeholder="id"> </td>
-                    <td> <input type="number" class="form-control" placeholder="name" onkeypress="return event.charCode >= 48 && event.charCode <= 57"> </td>
-                    <td> <input type="text" class="form-control" placeholder="Math"> </td>
-                    <td> <input type="text" class="form-control" placeholder="Science"> </td>
-                    <td> <input type="text" class="form-control" placeholder="English"> </td>
-                    
-                    <td></td>
+                    <form action="" onsubmit="if(addBtnClicked(this)){return addNewTableLine(this)}">
+                        <td> <input type="number" class="required" id="NewID" placeholder="id"> </td>
+                        <td> <input type="text" class="required" id="NewName" placeholder="name"> </td>
+                        <td> <input type="number" class="required" placeholder="Math" id="NewMath" onkeypress="return event.charCode >= 48 && event.charCode <= 57"> </td>
+                        <td> <input type="number" class="required" placeholder="Science" id="NewScience" onkeypress="return event.charCode >= 48 && event.charCode <= 57"> </td>
+                        <td> <input type="number" class="required" placeholder="English" id="NewEng"> </td>
+
+                        <td><input type="submit" id="AddBtn" value="Add"></td>
+                    </form>
                 </tr>
             </tbody>
         </table>
