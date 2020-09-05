@@ -53,8 +53,9 @@
 
         function addNewTableLine(form) {
             var table = document.getElementById("StudentBoard");
-            var LastRow = 0;//$('#StudentBoard >tbody tr').length;
-            var row = table.insertRow((LastRow - 1));
+            var LastRow = document.getElementById("StudentBoard").rows.length;
+            alert(LastRow);
+            var row = table.insertRow((LastRow-1));
             var id = row.insertCell(0);
             var name = row.insertCell(1);
             var Math = row.insertCell(2);
