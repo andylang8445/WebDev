@@ -24,9 +24,15 @@
         }
 
     </style>
+    <script>
+        function onLoadFunc() {
+
+        }
+
+    </script>
 </head>
 
-<body>
+<body onload="onLoadFunc()">
     <h1>Hello, World!</h1>
     <p>Hover over the checkbox to simulate a mouse-click.</p>
 
@@ -55,7 +61,7 @@
             var table = document.getElementById("StudentBoard");
             var LastRow = document.getElementById("StudentBoard").rows.length;
             alert(LastRow);
-            var row = table.insertRow((LastRow-1));
+            var row = table.insertRow((LastRow - 1));
             var id = row.insertCell(0);
             var name = row.insertCell(1);
             var Math = row.insertCell(2);
@@ -68,7 +74,7 @@
             Math.innerHTML = form.NewMath.value;
             Sci.innerHTML = form.NewScience.value;
             Eng.innerHTML = form.NewEng.value;
-            
+
             document.getElementById("StudentInfoForm").reset();
             return false;
         }
@@ -91,7 +97,7 @@
             <tbody>
                 <tr>
                     <form id="StudentInfoForm" action="" onsubmit="if(addBtnClicked(this)){return addNewTableLine(this)}">
-                        <td> <input type="number" class="required" id="NewID" placeholder="id"> </td>
+                        <td> <input type="number" id="NewID" placeholder="id" disabled> </td>
                         <td> <input type="text" class="required" id="NewName" placeholder="name"> </td>
                         <td> <input type="number" class="required" placeholder="Math" id="NewMath" onkeypress="return event.charCode >= 48 && event.charCode <= 57"> </td>
                         <td> <input type="number" class="required" placeholder="Science" id="NewScience" onkeypress="return event.charCode >= 48 && event.charCode <= 57"> </td>
