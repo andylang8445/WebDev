@@ -28,6 +28,10 @@
         function onLoadFunc() {
             document.getElementById("NewID").value=(document.getElementById("StudentBoard").rows.length-1);
         }
+        
+        function connectSocketServer(){
+            var wSocket = new WebSocket("ws://127.0.0.1:3303");
+        }
 
     </script>
 </head>
