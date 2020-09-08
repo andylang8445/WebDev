@@ -26,12 +26,20 @@
     </style>
     <script>
         function onLoadFunc() {
-            document.getElementById("NewID").value=(document.getElementById("StudentBoard").rows.length-1);
+            document.getElementById("NewID").value = (document.getElementById("StudentBoard").rows.length - 1);
         }
-        
-        function connectSocketServer(){
-            var wSocket = new WebSocket("ws://127.0.0.1:3303");
-            wSocket.send("송신 메시지");
+
+        var socket = io.connect('http://localhost:3100');
+        socket.on('answer', function(data) {
+            console.log(data.comment)
+            $('#chat').append(data.comment); //수신한 메시지를 표시
+        });
+
+        function myOnClick() { //socket.io 전송 함수
+            socket.emit("call", {
+                comment: $('#user').val() //전송헐 값
+            });
+            $('#user').val('');
         }
 
     </script>
@@ -81,7 +89,7 @@
             Eng.innerHTML = form.NewEng.value;
 
             document.getElementById("StudentInfoForm").reset();
-            document.getElementById("NewID").value=(document.getElementById("StudentBoard").rows.length-1);
+            document.getElementById("NewID").value = (document.getElementById("StudentBoard").rows.length - 1);
             return false;
         }
 

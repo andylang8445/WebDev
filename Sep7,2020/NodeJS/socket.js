@@ -1,4 +1,4 @@
-var io = require('socket.io').listen(3303);
+var io = require('socket.io').listen(3100);
 
 console.log('socket server run!!');
 
