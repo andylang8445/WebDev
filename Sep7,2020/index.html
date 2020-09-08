@@ -31,6 +31,7 @@
         
         function connectSocketServer(){
             var wSocket = new WebSocket("ws://127.0.0.1:3303");
+            wSocket.send("송신 메시지");
         }
 
     </script>
