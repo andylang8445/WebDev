@@ -1,0 +1,129 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <TITLE>Main Console</TITLE>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 55vw;
+            min-width: 480px;
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: center;
+            padding: 8px;
+        }
+
+        #AddBtn {
+            background-color: greenyellow;
+        }
+
+    </style>
+    <script>
+        function onLoadFunc() {
+            document.getElementById("NewID").value = (document.getElementById("StudentBoard").rows.length - 1);
+        }
+
+        var socket = io.connect('http://localhost:3100');
+        socket.on('answer', function(data) {
+            console.log(data.comment)
+            $('#chat').append(data.comment); //수신한 메시지를 표시
+        });
+
+        function myOnClick() { //socket.io 전송 함수
+            socket.emit("call", {
+                comment: $('#user').val() //전송헐 값
+            });
+            $('#user').val('');
+        }
+
+    </script>
+</head>
+
+<body onload="onLoadFunc()">
+    <h1>Hello, World!</h1>
+    <p>Hover over the checkbox to simulate a mouse-click.</p>
+
+    <form>
+        <input type="checkbox" id="myCheck" onmouseover="myFunction()" onclick="alert('click event occured')">
+    </form>
+    <script>
+        function myFunction() {
+            document.getElementById("myCheck").click();
+        }
+
+        function addBtnClicked(form) {
+            var requiredArr = document.getElementsByClassName('required');
+            for (var i = 0; i < requiredArr.length; i++) {
+                if (requiredArr[i].value.length == 0) {
+                    alert("Please Fill Out All Blanks!");
+                    requiredArr[i].focus();
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+        }
+
+        function addNewTableLine(form) {
+            var table = document.getElementById("StudentBoard");
+            var LastRow = document.getElementById("StudentBoard").rows.length;
+            //alert(LastRow);
+            var row = table.insertRow((LastRow - 1));
+            var id = row.insertCell(0);
+            var name = row.insertCell(1);
+            var Math = row.insertCell(2);
+            var Sci = row.insertCell(3);
+            var Eng = row.insertCell(4);
+            row.insertCell(5);
+
+            id.innerHTML = form.NewID.value;
+            name.innerHTML = form.NewName.value;
+            Math.innerHTML = form.NewMath.value;
+            Sci.innerHTML = form.NewScience.value;
+            Eng.innerHTML = form.NewEng.value;
+
+            document.getElementById("StudentInfoForm").reset();
+            document.getElementById("NewID").value = (document.getElementById("StudentBoard").rows.length - 1);
+            return false;
+        }
+
+    </script>
+
+    <center>
+        <table id="StudentBoard">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>Math<br>score</th>
+                    <th>Science<br>score</th>
+                    <th>English<br>score</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <form id="StudentInfoForm" action="" onsubmit="if(addBtnClicked(this)){return addNewTableLine(this)}">
+                        <td> <input type="number" id="NewID" placeholder="id" disabled> </td>
+                        <td> <input type="text" class="required" id="NewName" placeholder="name"> </td>
+                        <td> <input type="number" class="required" placeholder="Math" id="NewMath" onkeypress="return event.charCode >= 48 && event.charCode <= 57"> </td>
+                        <td> <input type="number" class="required" placeholder="Science" id="NewScience" onkeypress="return event.charCode >= 48 && event.charCode <= 57"> </td>
+                        <td> <input type="number" class="required" placeholder="English" id="NewEng"> </td>
+
+                        <td><input type="submit" id="AddBtn" value="Add"></td>
+                    </form>
+                </tr>
+            </tbody>
+        </table>
+    </center>
+
+</body>
+
+</html>
