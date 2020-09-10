@@ -26,6 +26,7 @@
         #DelBtn {
             background-color: red;
         }
+
     </style>
     <script>
         function onLoadFunc() {
@@ -44,6 +45,7 @@
             });
             $('#user').val('');
         }
+
     </script>
 </head>
 
@@ -94,6 +96,7 @@
             document.getElementById("NewID").value = (document.getElementById("StudentBoard").rows.length - 1);
             return false;
         }
+
     </script>
 
     <center>
@@ -123,6 +126,8 @@
                 </tr>
             </tbody>
         </table>
+        
+        <div style="padding-bottom: 16vh; padding-top: 16vh"></div>
 
         <table id="deleteExistingTableLine">
             <thead>
@@ -137,10 +142,12 @@
                 <tr>
                     <form id="StudentInfoForm" action="" onsubmit="if(addBtnClicked(this)){return addNewTableLine(this)}">
                         <td> <select name="DelFieldSelection" id="DelFieldSelection">
+                                <option value="" selected disabled hidden>Please Select</option>
                                 <option value="id">id</option>
-                                <option value="saab">Saab</option>
-                                <option value="opel">Opel</option>
-                                <option value="audi">Audi</option>
+                                <option value="name">name</option>
+                                <option value="MathScore">Math Score</option>
+                                <option value="ScienceScore">Science Score</option>
+                                <option value="EngScore">English Score</option>
                             </select> </td>
                         <td> <input type="text" class="required" id="NewName" placeholder="name"> </td>
 
@@ -151,4 +158,6 @@
         </table>
     </center>
 
-</body></html>
+</body>
+
+</html>
