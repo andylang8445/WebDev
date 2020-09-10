@@ -26,8 +26,8 @@
         #DelBtn {
             background-color: red;
         }
-        
-        #deleteExistingTableLine{
+
+        #deleteExistingTableLine {
             width: 45vw;
             min-width: 480px;
         }
@@ -108,12 +108,41 @@
             var Eng = row.insertCell(4);
             row.insertCell(5);
 
-            id.setAttribute("class","TableCellId");
-            name.setAttribute("class","TableCellName");
-            Math.setAttribute("class","TableCellMath");
-            Sci.setAttribute("class","TableCellSci");
-            Eng.setAttribute("class","TableCellEng");
-            
+            id.setAttribute("class", "TableCellId");
+            name.setAttribute("class", "TableCellName");
+            Math.setAttribute("class", "TableCellMath");
+            Sci.setAttribute("class", "TableCellSci");
+            Eng.setAttribute("class", "TableCellEng");
+
+            id.innerHTML = form.NewID.value;
+            name.innerHTML = form.NewName.value;
+            Math.innerHTML = form.NewMath.value;
+            Sci.innerHTML = form.NewScience.value;
+            Eng.innerHTML = form.NewEng.value;
+
+            document.getElementById("StudentInfoForm").reset();
+            document.getElementById("NewID").value = (document.getElementById("StudentBoard").rows.length - 1);
+            return false;
+        }
+
+        function delNewTableLine(form) {
+            var table = document.getElementById("StudentBoard");
+            var LastRow = document.getElementById("StudentBoard").rows.length;
+            //alert(LastRow);
+            var row = table.insertRow((LastRow - 1));
+            var id = row.insertCell(0);
+            var name = row.insertCell(1);
+            var Math = row.insertCell(2);
+            var Sci = row.insertCell(3);
+            var Eng = row.insertCell(4);
+            row.insertCell(5);
+
+            id.setAttribute("class", "TableCellId");
+            name.setAttribute("class", "TableCellName");
+            Math.setAttribute("class", "TableCellMath");
+            Sci.setAttribute("class", "TableCellSci");
+            Eng.setAttribute("class", "TableCellEng");
+
             id.innerHTML = form.NewID.value;
             name.innerHTML = form.NewName.value;
             Math.innerHTML = form.NewMath.value;
