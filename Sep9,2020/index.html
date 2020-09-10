@@ -122,6 +122,33 @@
                 </tr>
             </tbody>
         </table>
+
+        <table id="deleteExistingTableLine">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>Math<br>score</th>
+                    <th>Science<br>score</th>
+                    <th>English<br>score</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <form id="StudentInfoForm" action="" onsubmit="if(addBtnClicked(this)){return addNewTableLine(this)}">
+                        <td> <input type="number" id="NewID" placeholder="id" disabled> </td>
+                        <td> <input type="text" class="required" id="NewName" placeholder="name"> </td>
+                        <td> <input type="number" class="required" placeholder="Math" id="NewMath" onkeypress="return event.charCode >= 48 && event.charCode <= 57"> </td>
+                        <td> <input type="number" class="required" placeholder="Science" id="NewScience" onkeypress="return event.charCode >= 48 && event.charCode <= 57"> </td>
+                        <td> <input type="number" class="required" placeholder="English" id="NewEng"> </td>
+
+                        <td><input type="submit" id="AddBtn" value="Add"></td>
+                    </form>
+                </tr>
+            </tbody>
+        </table>
     </center>
 
 </body>
