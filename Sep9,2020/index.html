@@ -108,6 +108,12 @@
             var Eng = row.insertCell(4);
             row.insertCell(5);
 
+            id.setAttribute("class","TableCellId");
+            name.setAttribute("class","TableCellName");
+            Math.setAttribute("class","TableCellMath");
+            Sci.setAttribute("class","TableCellSci");
+            Eng.setAttribute("class","TableCellEng");
+            
             id.innerHTML = form.NewID.value;
             name.innerHTML = form.NewName.value;
             Math.innerHTML = form.NewMath.value;
