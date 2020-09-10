@@ -31,6 +31,7 @@
             width: 45vw;
             min-width: 480px;
         }
+
     </style>
     <script>
         function onLoadFunc() {
@@ -49,6 +50,7 @@
             });
             $('#user').val('');
         }
+
     </script>
 </head>
 
@@ -128,7 +130,18 @@
             var LastRow = document.getElementById("StudentBoard").rows.length;
 
             var selection = document.getElementById('DelFieldSelection');
+            var InputValue = document.getElementById('delValue');
+            var selectionChoiceArr = document.getElementsByClassName('TableCellId');
+            if (selection.value == "id") {
+                for (var i = 0; i < selectionChoiceArr.length; i++) {
+                    if (selectionChoiceArr[i].innerHTML == InputValue.value) {
+                        document.getElementById("StudentBoard").deleteRow(i+1);
+                    }
+                }
+            }
             alert(selection.value);
+            alert(InputValue.value);
+
 
             /*//alert(LastRow);
             var row = table.insertRow((LastRow - 1));
@@ -155,6 +168,7 @@
             document.getElementById("NewID").value = (document.getElementById("StudentBoard").rows.length - 1);*/
             return false;
         }
+
     </script>
 
     <center>
@@ -216,4 +230,6 @@
         </table>
     </center>
 
-</body></html>
+</body>
+
+</html>
