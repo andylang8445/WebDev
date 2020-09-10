@@ -38,7 +38,7 @@
             document.getElementById("NewID").value = (document.getElementById("StudentBoard").rows.length - 1);
         }
 
-        var socket = io.connect('http://localhost:3100');
+        /*var socket = io.connect('http://localhost:3100');
         socket.on('answer', function(data) {
             console.log(data.comment)
             $('#chat').append(data.comment); //수신한 메시지를 표시
@@ -49,7 +49,7 @@
                 comment: $('#user').val() //전송헐 값
             });
             $('#user').val('');
-        }
+        }*/
 
     </script>
 </head>
