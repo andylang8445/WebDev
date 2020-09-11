@@ -175,6 +175,7 @@
 
         function delSelectionOnChange(a) {
             if (a == "name") {
+                document.getElementById('pTagUnderDelTable').innerHTML="All datas with the same name will be deleted!";
 
             } else if (a == "MathScore") {
 
@@ -245,7 +246,7 @@
                 </tr>
             </tbody>
         </table>
-        <p id="pTagUnderDelTable"></p>
+        <p id="pTagUnderDelTable" style="color: crimson;"></p>
     </center>
 
 </body>
