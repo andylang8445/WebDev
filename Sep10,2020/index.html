@@ -31,7 +31,6 @@
             width: 45vw;
             min-width: 480px;
         }
-
     </style>
     <script>
         function onLoadFunc() {
@@ -50,7 +49,6 @@
             });
             $('#user').val('');
         }*/
-
     </script>
 </head>
 
@@ -128,28 +126,46 @@
         function delTableLine(form) {
             var selection = document.getElementById('DelFieldSelection');
             var InputValue = document.getElementById('delValue');
-            
+
             var selectionChoiceArrID = document.getElementsByClassName('TableCellId');
             var selectionChoiceArrName = document.getElementsByClassName('TableCellName');
             var selectionChoiceArrMath = document.getElementsByClassName('TableCellMath');
             var selectionChoiceArrScience = document.getElementsByClassName('TableCellSci');
             var selectionChoiceArrEnglish = document.getElementsByClassName('TableCellEng');
-            
-            
+
+
             if (selection.value == "id") {
                 for (var i = 0; i < selectionChoiceArrID.length; i++) {
                     if (selectionChoiceArrID[i].innerHTML == InputValue.value) {
                         document.getElementById("StudentBoard").deleteRow(i + 1);
                     }
                 }
-            }
-            else if (selection.value == "name") {
+            } else if (selection.value == "name") {
                 for (var i = 0; i < selectionChoiceArrName.length; i++) {
                     if (selectionChoiceArrName[i].innerHTML == InputValue.value) {
                         document.getElementById("StudentBoard").deleteRow(i + 1);
                     }
                 }
+            } else if (selection.value == "MathScore") {
+                for (var i = 0; i < selectionChoiceArrMath.length; i++) {
+                    if (selectionChoiceArrMath[i].innerHTML == InputValue.value) {
+                        document.getElementById("StudentBoard").deleteRow(i + 1);
+                    }
+                }
+            } else if (selection.value == "ScienceScore") {
+                for (var i = 0; i < selectionChoiceArrScience.length; i++) {
+                    if (selectionChoiceArrScience[i].innerHTML == InputValue.value) {
+                        document.getElementById("StudentBoard").deleteRow(i + 1);
+                    }
+                }
+            } else if (selection.value == "EngScore") {
+                for (var i = 0; i < selectionChoiceArrEnglish.length; i++) {
+                    if (selectionChoiceArrEnglish[i].innerHTML == InputValue.value) {
+                        document.getElementById("StudentBoard").deleteRow(i + 1);
+                    }
+                }
             }
+
             alert(selection.value);
             alert(InputValue.value);
 
@@ -179,7 +195,6 @@
             document.getElementById("NewID").value = (document.getElementById("StudentBoard").rows.length - 1);*/
             return false;
         }
-
     </script>
 
     <center>
@@ -224,7 +239,7 @@
             <tbody>
                 <tr>
                     <form id="StudentInfoDeleteForm" action="" onsubmit="if(delBtnClicked(this)){return delTableLine(this)}">
-                        <td> <select name="DelFieldSelection" id="DelFieldSelection" class="requiredDel">
+                        <td> <select name="DelFieldSelection" id="DelFieldSelection" class="requiredDel" onchange="delSelectionOnChange(this.value);">
                                 <option value="" selected disabled hidden>Please Select</option>
                                 <option value="id">id</option>
                                 <option value="name">name</option>
@@ -241,6 +256,4 @@
         </table>
     </center>
 
-</body>
-
-</html>
+</body></html>
