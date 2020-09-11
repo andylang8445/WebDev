@@ -173,7 +173,16 @@
             return false;
         }
 
-        function delSelectionOnChange(var a) {
+        function delSelectionOnChange(a) {
+            if (a == "name") {
+
+            } else if (a == "MathScore") {
+
+            } else if (a == "ScienceScore") {
+
+            } else if (a == "EngScore") {
+
+            }
             alert(a);
         }
 
@@ -222,7 +231,7 @@
                 <tr>
                     <form id="StudentInfoDeleteForm" action="" onsubmit="if(delBtnClicked(this)){return delTableLine(this)}">
                         <td> <select name="DelFieldSelection" id="DelFieldSelection" class="requiredDel" onchange="delSelectionOnChange(this.value);">
-                                <option value="" selected disabled hidden>Please Select</option>
+                                <option value="" selected disabled>Please Select</option>
                                 <option value="id">id</option>
                                 <option value="name">name</option>
                                 <option value="MathScore">Math Score</option>
@@ -236,6 +245,7 @@
                 </tr>
             </tbody>
         </table>
+        <p id="pTagUnderDelTable"></p>
     </center>
 
 </body>
