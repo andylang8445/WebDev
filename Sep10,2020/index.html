@@ -31,7 +31,6 @@
             width: 45vw;
             min-width: 480px;
         }
-
     </style>
     <script>
         function onLoadFunc() {
@@ -50,7 +49,6 @@
             });
             $('#user').val('');
         }*/
-
     </script>
 </head>
 
@@ -175,17 +173,16 @@
 
         function delSelectionOnChange(a) {
             if (a == "name") {
-                document.getElementById('pTagUnderDelTable').innerHTML = "All datas with the same name will be deleted!";
+                document.getElementById('pTagUnderDelTable').innerHTML = "NOTICE: All datas with the same name will be deleted!";
             } else if (a == "MathScore") {
-                document.getElementById('pTagUnderDelTable').innerHTML = "All datas with the same name will be deleted!";
+                document.getElementById('pTagUnderDelTable').innerHTML = "NOTICE: All datas with the same Math Score will be deleted!";
             } else if (a == "ScienceScore") {
-                document.getElementById('pTagUnderDelTable').innerHTML = "All datas with the same name will be deleted!";
+                document.getElementById('pTagUnderDelTable').innerHTML = "NOTICE: All datas with the same Science Score will be deleted!";
             } else if (a == "EngScore") {
-                document.getElementById('pTagUnderDelTable').innerHTML = "All datas with the same name will be deleted!";
+                document.getElementById('pTagUnderDelTable').innerHTML = "NOTICE: All datas with the same English Score will be deleted!";
             }
             alert(a);
         }
-
     </script>
 
     <center>
@@ -248,6 +245,4 @@
         <p id="pTagUnderDelTable" style="color: crimson;"></p>
     </center>
 
-</body>
-
-</html>
+</body></html>
