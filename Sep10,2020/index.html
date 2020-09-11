@@ -31,6 +31,7 @@
             width: 45vw;
             min-width: 480px;
         }
+
     </style>
     <script>
         function onLoadFunc() {
@@ -49,6 +50,7 @@
             });
             $('#user').val('');
         }*/
+
     </script>
 </head>
 
@@ -119,7 +121,8 @@
             Eng.innerHTML = form.NewEng.value;
 
             document.getElementById("StudentInfoForm").reset();
-            document.getElementById("NewID").value = (document.getElementById("StudentBoard").rows.length - 1);
+            document.getElementById("NewID").value = document.getElementById("idCntLatestBooking").innerHTML + 1; //(document.getElementById("StudentBoard").rows.length - 1);
+            document.getElementById("idCntLatestBooking").innerHTML += 1;
             return false;
         }
 
@@ -182,6 +185,7 @@
                 document.getElementById('pTagUnderDelTable').innerHTML = "Notice: All datas with the same English Score will be deleted!";
             }
         }
+
     </script>
 
     <center>
@@ -242,6 +246,9 @@
             </tbody>
         </table>
         <p id="pTagUnderDelTable" style="color: crimson;"></p>
+        <p id="idCntLatestBooking" hidden>0</p>
     </center>
 
-</body></html>
+</body>
+
+</html>
