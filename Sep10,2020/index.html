@@ -35,7 +35,9 @@
     </style>
     <script>
         function onLoadFunc() {
-            document.getElementById("NewID").value = (document.getElementById("StudentBoard").rows.length - 1);
+            //document.getElementById("NewID").value = (document.getElementById("StudentBoard").rows.length - 1);
+            document.getElementById("NewID").value = parseInt(document.getElementById("idCntLatestBooking").innerHTML, 10) + 1; //(document.getElementById("StudentBoard").rows.length - 1);
+            document.getElementById("idCntLatestBooking").innerHTML = parseInt(document.getElementById("idCntLatestBooking").innerHTML, 10) + 1;
         }
 
         /*var socket = io.connect('http://localhost:3100');
@@ -55,16 +57,16 @@
 </head>
 
 <body onload="onLoadFunc()">
-    <h1>Hello, World!</h1>
+    <!--<h1>Hello, World!</h1>
     <p>Hover over the checkbox to simulate a mouse-click.</p>
 
     <form>
         <input type="checkbox" id="myCheck" onmouseover="myFunction()" onclick="alert('click event occured')">
-    </form>
+    </form>-->
     <script>
-        function myFunction() {
+        /*function myFunction() {
             document.getElementById("myCheck").click();
-        }
+        }*/
 
         function addBtnClicked(form) {
             var requiredArr = document.getElementsByClassName('required');
@@ -121,8 +123,8 @@
             Eng.innerHTML = form.NewEng.value;
 
             document.getElementById("StudentInfoForm").reset();
-            document.getElementById("NewID").value = document.getElementById("idCntLatestBooking").innerHTML + 1; //(document.getElementById("StudentBoard").rows.length - 1);
-            document.getElementById("idCntLatestBooking").innerHTML += 1;
+            document.getElementById("NewID").value = parseInt(document.getElementById("idCntLatestBooking").innerHTML, 10) + 1; //(document.getElementById("StudentBoard").rows.length - 1);
+            document.getElementById("idCntLatestBooking").innerHTML = parseInt(document.getElementById("idCntLatestBooking").innerHTML, 10) + 1;
             return false;
         }
 
