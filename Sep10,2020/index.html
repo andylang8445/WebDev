@@ -126,13 +126,16 @@
         }
 
         function delTableLine(form) {
-
             var selection = document.getElementById('DelFieldSelection');
             var InputValue = document.getElementById('delValue');
+            
+            var selectionChoiceArrID = document.getElementsByClassName('TableCellId');
             var selectionChoiceArr = document.getElementsByClassName('TableCellId');
+            
+            
             if (selection.value == "id") {
                 for (var i = 0; i < selectionChoiceArr.length; i++) {
-                    if (selectionChoiceArr[i].innerHTML == InputValue.value) {
+                    if (selectionChoiceArrID[i].innerHTML == InputValue.value) {
                         document.getElementById("StudentBoard").deleteRow(i + 1);
                     }
                 }
