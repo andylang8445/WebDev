@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <TITLE>Main Console</TITLE>
     <style>
-        body{
+        body {
             margin: 0.1vh;
         }
+
         .topnav {
             margin: 0;
             padding: 0;
@@ -63,12 +64,14 @@
             width: 45vw;
             min-width: 480px;
         }
+
     </style>
     <script>
         function onLoadFunc() {
             document.getElementById("NewID").value = parseInt(document.getElementById("idCntLatestBooking").innerHTML, 10) + 1;
             document.getElementById("idCntLatestBooking").innerHTML = parseInt(document.getElementById("idCntLatestBooking").innerHTML, 10) + 1;
         }
+
     </script>
 </head>
 
@@ -196,6 +199,7 @@
                 document.getElementById('pTagUnderDelTable').innerHTML = "Notice: All datas with the same English Score will be deleted!";
             }
         }
+
     </script>
 
     <center>
@@ -259,4 +263,6 @@
         <p id="idCntLatestBooking" hidden>0</p>
     </center>
 
-</body></html>
+</body>
+
+</html>
